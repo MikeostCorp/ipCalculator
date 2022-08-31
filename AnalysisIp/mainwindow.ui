@@ -1,0 +1,698 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>711</width>
+    <height>376</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">MainWindow{
+background: rgb(31,31,31)
+}</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QLineEdit" name="lineEdit_1">
+    <property name="geometry">
+     <rect>
+      <x>63</x>
+      <y>150</y>
+      <width>200</width>
+      <height>34</height>
+     </rect>
+    </property>
+    <property name="whatsThis">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::LeftToRight</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 700 9pt &quot;Segoe UI&quot;;
+color: rgb(236, 236, 236);
+background-color: rgb(52, 52, 54);
+border-style: solid;
+border-width: 1px;
+border-radius: 13px;
+border-color: rgb(236, 236, 236);</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>316</y>
+      <width>256</width>
+      <height>34</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QAbstractButton{
+font: 700 10pt &quot;Arial&quot;;
+color: rgb(236, 236, 236);
+background-color: rgb(52, 52, 54);
+border-style: solid;
+border-width: 1px;
+border-radius: 12px;
+border-color: rgb(52, 52, 54);
+}
+
+QPushButton::hover{
+background-color: rgb(92, 92, 95);
+border-color: rgb(92, 92, 95);
+}</string>
+    </property>
+    <property name="text">
+     <string>Анализ</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>300</x>
+      <y>100</y>
+      <width>391</width>
+      <height>251</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 700 9pt &quot;Arial&quot;;
+color: rgb(236, 236, 236);
+background-color: rgb(52, 52, 54);
+border-style: solid;
+border-width: 1px;
+border-radius: 15px;
+border-color: rgb(31,31,31)</string>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="barLabel">
+    <property name="geometry">
+     <rect>
+      <x>-2</x>
+      <y>25</y>
+      <width>800</width>
+      <height>2</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(52, 52, 54);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_3">
+    <property name="geometry">
+     <rect>
+      <x>652</x>
+      <y>0</y>
+      <width>30</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+border: none
+}
+
+QPushButton::hover{
+background-color: rgb(70,70,71);
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset resource="resources.qrc">
+      <normaloff>:/image/labelBack.png</normaloff>:/image/labelBack.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>15</width>
+      <height>15</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_2">
+    <property name="geometry">
+     <rect>
+      <x>682</x>
+      <y>0</y>
+      <width>30</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>ArrowCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+border: none
+}
+
+QPushButton::hover{
+background-color: rgb(220,20,60);
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset resource="resources.qrc">
+      <normaloff>:/image/closeCross.png</normaloff>:/image/closeCross.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>15</width>
+      <height>15</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QLabel" name="headImage">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>191</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_4">
+    <property name="geometry">
+     <rect>
+      <x>300</x>
+      <y>44</y>
+      <width>391</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(236, 236, 236);
+background-color: rgb(52, 52, 54);
+border-style: solid;
+border-width: 1px;
+border-radius: 15px;
+border-color: rgb(31,31,31)</string>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_5">
+    <property name="geometry">
+     <rect>
+      <x>300</x>
+      <y>52</y>
+      <width>391</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 700 &quot;Arial&quot;;</string>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; color:#ffffff;&quot;&gt;Результат&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_6">
+    <property name="geometry">
+     <rect>
+      <x>19</x>
+      <y>44</y>
+      <width>256</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 700 9pt &quot;Arial&quot;;
+color: rgb(236, 236, 236);
+background-color: rgb(52, 52, 54);
+border-style: solid;
+border-width: 1px;
+border-radius: 15px;
+border-color: rgb(31,31,31)</string>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>52</y>
+      <width>251</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 700  &quot;Arial&quot;;</string>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; color:#ffffff;&quot;&gt;Ввод данных&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_4">
+    <property name="geometry">
+     <rect>
+      <x>26</x>
+      <y>152</y>
+      <width>31</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QAbstractButton{
+font: 700 10pt &quot;Arial&quot;;
+color: rgb(236, 236, 236);
+background-color: rgb(52, 52, 54);;
+border-style: solid;
+border-width: 1px;
+border-radius: 6px;
+border-color: rgb(236, 236, 236);
+}
+
+QPushButton::hover{
+background-color: rgb(92, 92, 95);
+border-color: rgb(236, 236, 236);
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset resource="resources.qrc">
+      <normaloff>:/image/trash.png</normaloff>:/image/trash.png</iconset>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="comboBox">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>267</y>
+      <width>256</width>
+      <height>34</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QComboBox{
+font: 700 10pt &quot;Arial&quot;;
+color: rgb(236, 236, 236);
+background-color: rgb(52, 52, 54);
+border-style: solid;
+border-width: 1px;
+border-radius: 12px;
+border-color: rgb(52, 52, 54);
+padding-left: 9px;
+}
+
+QComboBox::drop-down {
+   subcontrol-origin: padding;
+    subcontrol-position: top right;
+    width: 15px;
+    border-left-width: 1px;
+    border-left-color: darkgray;
+    border-left-style: solid; 
+    border-top-right-radius: 3px; 
+    border-bottom-right-radius: 3px;
+}
+
+QComboBox QListView{
+    background-color:rgb(62,62,64);
+    border: 1px solid rgb(62,62,64);
+    color: rgb(236, 236, 236);
+    border-width: 2px;
+    border-radius: 12px;
+}
+
+QComboBox QAbstractItemView {
+    border: 1px  solid rgb(62,62,64);
+}
+</string>
+    </property>
+    <item>
+     <property name="text">
+      <string>0 - 0.0.0.0</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>1 - 128.0.0.0</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>2 - 192.0.0.0</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>3 - 224.0.0.0</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>4 - 240.0.0.0</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>5 - 248.0.0.0</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>6 - 252.0.0.0</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>7 - 254.0.0.0</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>8 - 255.0.0.0</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>9 - 255.128.0.0</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>10 - 255.192.0.0</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>11 - 255.224.0.0</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>12 - 255.240.0.0</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>13 - 255.248.0.0</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>14 - 255.252.0.0</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>15 - 255.254.0.0</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>16 - 255.255.0.0</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>17 - 255.255.128.0</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>18 - 255.255.192.0</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>19 - 255.255.224.0</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>20 - 255.255.240.0</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>21 - 255.255.248.0</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>22 - 255.255.252.0</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>23 - 255.255.254.0</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>24 - 255.255.255.0</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>25 - 255.255.255.128</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>26 - 255.255.255.192</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>27 - 255.255.255.224</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>28 - 255.255.255.240</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>29 - 255.255.255.248</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>30 - 255.255.255.252</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>31 - 255.255.255.254</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>32 - 255.255.255.255</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QLabel" name="label_7">
+    <property name="geometry">
+     <rect>
+      <x>19</x>
+      <y>100</y>
+      <width>256</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 700 9pt &quot;Arial&quot;;
+color: rgb(236, 236, 236);
+</string>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Ввод ip&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>100</y>
+      <width>256</width>
+      <height>151</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(52, 52, 54);
+border-style: solid;
+border-width: 1px;
+border-radius: 15px;
+border-color: rgb(31,31,31)</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="radioButton">
+    <property name="geometry">
+     <rect>
+      <x>72</x>
+      <y>204</y>
+      <width>80</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 700 9pt &quot;Segoe UI&quot;;
+color: rgb(236, 236, 236);
+background-color: rgb(52, 52, 54);
+</string>
+    </property>
+    <property name="text">
+     <string>Нет сидра</string>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="radioButton_2">
+    <property name="geometry">
+     <rect>
+      <x>182</x>
+      <y>204</y>
+      <width>61</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 700 9pt &quot;Segoe UI&quot;;
+color: rgb(236, 236, 236);
+background-color: rgb(52, 52, 54);
+</string>
+    </property>
+    <property name="text">
+     <string>Сидр</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_9">
+    <property name="geometry">
+     <rect>
+      <x>63</x>
+      <y>200</y>
+      <width>101</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(52, 52, 54);
+border-style: solid;
+border-width: 1px;
+border-radius: 13px;
+border-color:  rgb(236, 236, 236);
+vertical-align: middle</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_10">
+    <property name="geometry">
+     <rect>
+      <x>172</x>
+      <y>200</y>
+      <width>91</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(52, 52, 54);
+border-style: solid;
+border-width: 1px;
+border-radius: 13px;
+border-color:  rgb(236, 236, 236);
+vertical-align: middle</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <zorder>label</zorder>
+   <zorder>label_9</zorder>
+   <zorder>label_3</zorder>
+   <zorder>barLabel</zorder>
+   <zorder>pushButton_3</zorder>
+   <zorder>pushButton_2</zorder>
+   <zorder>headImage</zorder>
+   <zorder>label_4</zorder>
+   <zorder>label_5</zorder>
+   <zorder>label_6</zorder>
+   <zorder>label_2</zorder>
+   <zorder>lineEdit_1</zorder>
+   <zorder>label_7</zorder>
+   <zorder>pushButton_4</zorder>
+   <zorder>comboBox</zorder>
+   <zorder>pushButton</zorder>
+   <zorder>radioButton</zorder>
+   <zorder>label_10</zorder>
+   <zorder>radioButton_2</zorder>
+  </widget>
+ </widget>
+ <resources>
+  <include location="resources.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>pushButton_3</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>showMinimized()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>501</x>
+     <y>11</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>496</x>
+     <y>45</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_2</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>535</x>
+     <y>13</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>535</x>
+     <y>59</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

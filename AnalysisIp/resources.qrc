@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/resorces"/>
+    <qresource prefix="/">
+        <file>image/closeCross.png</file>
+        <file>image/labelBack.png</file>
+        <file>image/icon.png</file>
+        <file>image/trash.png</file>
+    </qresource>
+</RCC>
