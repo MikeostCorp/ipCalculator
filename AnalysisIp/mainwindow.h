@@ -22,6 +22,10 @@ private slots:
 
     void on_pushButton_4_clicked();
 
+    void on_radioButton_clicked();
+
+    void on_radioButton_2_clicked();
+
 protected:
     void mousePressEvent(QMouseEvent *event);
     void mouseMoveEvent(QMouseEvent *event);

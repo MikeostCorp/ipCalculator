@@ -21,8 +21,6 @@ MainWindow::MainWindow(QWidget *parent)
     int h = ui->headImage->height();
     QPixmap picture1(":/image/icon.png");
     ui->headImage->setPixmap(picture1.scaled(w,h, Qt::KeepAspectRatio));
-
-    ui->label_3->setText("Адрес:   93.78.30.214   01011101.01001110.00011110.11010110");
 }
 
 MainWindow::~MainWindow()
@@ -34,16 +32,13 @@ QString inBin(QString ip) {
     QString ipOctetStr;
     int ipOctetInt;
     QString res;
+    QStringList ipOctet = ip.split('.');
 
-    for(int i = 0; i < ip.size(); ++i){
-        if(ip[i] != '.' && ip[i] != ' '){
-            ipOctetStr += ip[i];
-            continue;
-        }
+    for(int i = 0; i < 4; ++i){
 
-        ipOctetInt = ipOctetStr.toInt();
+        ipOctetInt = (ipOctet.at(i)).toInt();
         ipOctetStr = NULL;
-        while(ipOctetInt){
+        while(ipOctetInt > 0){
             ipOctetStr += QString::number(ipOctetInt % 2);
             ipOctetInt /= 2;
         }
@@ -90,8 +85,9 @@ void MainWindow::on_pushButton_clicked()
     QString numberBitsInAdress;
     QString Netmask;
     QString Network, Broadcast, Hostmin, Hostmax, Wildcard;
-    int indexComboBox, octet[4] = {0, 0, 0, 0}, octetip[4] = {0, 0, 0, 0};
-    int cor = 0, hosts;
+    int indexComboBox, octetip[4] = {0, 0, 0, 0};
+    int cor = 0;
+    long long hosts;
 
     //IP
     for(int i = 0, j = 0; i < std::size(fullIp); ++i) {
@@ -106,10 +102,16 @@ void MainWindow::on_pushButton_clicked()
     }
 
     //условие на проверку введения ip адресса
-    if(std::size(fullIp) > 6 && octetip[0] < 255 && octetip[0] > 0 && octetip[1] < 256 && octetip[1] > 0 && octetip[2] < 256 && octetip[2] > 0 && octetip[3] < 256 && octetip[3] > 0){
+    if(std::size(fullIp) > 6 && octetip[0] < 255 && octetip[0] > 0
+                             && octetip[1] < 256 && octetip[1] > 0
+                             && octetip[2] < 256 && octetip[2] > 0
+                             && octetip[3] < 256 && octetip[3] > 0){
 
         //first hren
         if(ui->radioButton->isChecked()) {
+            //Очистка экранов
+            ui->label_3->clear();
+            ui->label_11->clear();
 
             // Преобразование первой части ip-адреса в бинарный вид
             while(octetip[0] != 0){
@@ -186,7 +188,10 @@ void MainWindow::on_pushButton_clicked()
                 }
 
                 //Hosts
-                hosts = pow(2, (32 - indexComboBox));
+                if(indexComboBox != 32) {
+                    hosts = pow(2, (32 - indexComboBox));
+                    hosts -= 2;
+                } else hosts = 0;
 
                 //Network
                 fullIp = inBin(fullIp);
@@ -232,15 +237,43 @@ void MainWindow::on_pushButton_clicked()
                 else Hostmax[Hostmax.size()-1] = '1';
 
                 //Wildcard
-                for(int i = 0 ;i < 4; i++) {
-                      Wildcard += QString::number(255 - octet[i]);
-                      if(i != 3)
-                        Wildcard += '.';
+                Netmask = inDec(Netmask);
+                QString cool;
+                for(int i = 0, cor = 0; i < Netmask.size(); i++) {
+                    if(Netmask[i] != '.') {
+                        cool += Netmask[i];
+                    }
+                    else {
+                        Wildcard += QString::number(255 - cool.toInt()) + '.';
+                        cool = NULL;
+                        cor++;     
+                    }
+
+                    if(i == Netmask.size()-1 && cor == 3)
+                        Wildcard += QString::number(255 - cool.toInt());
                 }
 
-                QMessageBox::critical(this,"Ошибка!", inDec(fullIp));
+                ui->label_3->setText("Адрес    :\t" + inDec(fullIp)
+                                     + "\nBitmask  :\t" + QString::number(indexComboBox)
+                                     + "\nNetmask  :\t" + Netmask
+                                     + "\nWildcard :\t" + Wildcard
+                                     + "\nNetwork  :\t" + inDec(Network)
+                                     + "\nBroadcast:\t" + inDec(Broadcast)
+                                     + "\nHostmin  :\t" + inDec(Hostmin)
+                                     + "\nHostmax  :\t" + inDec(Hostmax)
+                                     + "\nHosts    :\t" + QString::number(hosts));
+
+                ui->label_11->setText(fullIp
+                                      + "\n"
+                                      + "\n" + inBin(Netmask)
+                                      + "\n" + inBin(Wildcard)
+                                      + "\n" + Network
+                                      + "\n" + Broadcast
+                                      + "\n" + Hostmin
+                                      + "\n" + Hostmax
+                                      + "\n");
         }
-        else QMessageBox::critical(this,"Ошибка!","Лох печальный");
+        else QMessageBox::critical(this,"Ошибка!","Выберите нотацию");
     }
     else {
         QMessageBox::critical(this,"Ошибка!","Проверьте правильность ввода ip-адреса!"
@@ -270,6 +303,20 @@ void MainWindow::mouseMoveEvent(QMouseEvent* event)
 
 void MainWindow::on_pushButton_4_clicked()
 {
+    ui->label_11->clear();
     ui->label_3->clear();
     ui->lineEdit_1->clear();
 }
+
+void MainWindow::on_radioButton_clicked()
+{
+        ui->comboBox->setEnabled(false);
+        //ui->comboBox->setStyleSheet("QComboBox{font: 700 10pt ;color: rgb(236, 236, 236); background-color: rgb(52, 52, 54); border-style: solid; border-width: 1px; border-radius: 12px; border-color: rgb(52, 52, 54); padding-left: 9px; }  QComboBox::drop-down { subcontrol-origin: padding; subcontrol-position: top right;width: 15px; border-left-width: 1px;border-left-color: darkgray; border-left-style: solid;  border-top-right-radius: 3px; border-bottom-right-radius: 3px; }QComboBox QListView{ background-color:rgb(62,62,64);border: 1px solid rgb(62,62,64);color: rgb(236, 236, 236);border-width: 2px;border-radius: 12px; }QComboBox QAbstractItemView {border: 1px  solid rgb(62,62,64);}");
+}
+
+
+void MainWindow::on_radioButton_2_clicked()
+{
+    ui->comboBox->setEnabled(true);
+}
+
